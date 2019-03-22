@@ -45,7 +45,7 @@ class UserViewModel {
     
     public var rating: Double? {
         let rating = user.rating.prefix(4)
-        if rating.isEmpty { return nil }
+        if rating.isEmpty || rating.count < 4 { return nil }
         let sum = rating.reduce(0, +)
         return Double(sum/rating.count)
     }

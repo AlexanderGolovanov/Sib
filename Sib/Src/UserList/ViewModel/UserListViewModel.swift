@@ -8,7 +8,13 @@
 
 import Foundation
 
-class UserListViewModel {
+protocol UserListProtocol {
+    func getNumberOfUserModels() -> Int
+    func getUserModel(row: Int) -> UserViewModel?
+}
+
+class UserListViewModel: UserListProtocol {
+    
     private var userViewModels: [UserViewModel]
     
     init(userViewModels: [UserViewModel]) {

@@ -10,14 +10,13 @@ import UIKit
 
 class UserListViewController: UITableViewController {
     
-    private var viewModel: UserListViewModel?
+    private var viewModel: UserListProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let users = UserRepo.getUsers().map { UserViewModel(user: $0) }
         viewModel = UserListViewModel(userViewModels: users)
         tableView.tableFooterView = UIView(frame: .zero)
-        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
